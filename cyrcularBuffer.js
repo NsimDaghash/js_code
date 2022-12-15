@@ -44,29 +44,51 @@ function forcedWrite(arr){  // function to force write in the array
 }
 
 function overWrite(arr){  // function to force write in the array
+    // ifthe input is more than one value .put it in another array an concrATE TO THE ORIGINAL ARRAY
     let newInput = readlineSync.question("\n enter a value :");
     arr.push(newInput)
     return(arr);
 }
 
-let circularBuffer = function(arr) { 
+function deleteItem(arr){
+    let itemsToDelete = readlineSync.question("\n how many element you want tyo delete : ");
+    if (itemsToDelete > arr.length ){
+        console.log("you don't have that much of element in the buffer");
+        return;
+    }
+    for ( let i=0;i<itemsToDelete;i++){
+        arr.shift();
+    }
+}
 
-    console.log("fida :",arr.length); 
-    let count = 0;
+let circularBuffer = function(arr) { 
     do{
-        if (arr.length<7){
+        console.log("what do you want to do ?");
+        console.log("1. Write to the buffer ");
+        console.log("2. Delete from the buffer ");
+        console.log("3. exit!");
+        let choiseValue = readlineSync.question("\n enter a value :");
+        if (choiseValue==3){
+            return;
+        }
+
+        if (arr.length<7 && choiseValue==1 ){
             overWrite(arr);
         }
-    for ( let i =0 ; i< arr.length;i++){
-    if (arr.length == 7){
-        console.log("Buffer is full,further writes are blocked until a slot becomes free");  
-        let forceInput = readlineSync.question("\n do you want to force write ? :").toLowerCase();
-        if(forceInput=='y'){ forcedWrite(arr)}
-    }else{
-        overWrite(arr);
+        if (arr.length ==7 && choiseValue==1 )
+        {
+            console.log("Buffer is full,further writes are blocked until a slot becomes free");  
+            let forceInput = readlineSync.question("\n do you want to force write ? :").toLowerCase();
+            if(forceInput=='y'){ forcedWrite(arr)}
+        }
+        if (choiseValue == 2 && arr.length>0){
+            deleteItem(arr);
+        }else{
+            console.log("its an empty buffer !");
+        }
+        console.log(arr);
     }
-    console.log(arr);}
-}while (true);
+while (true);
 }
 
 circularBuffer(arr);
