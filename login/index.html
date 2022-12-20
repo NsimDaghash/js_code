@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masooda</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="form-wrapper">
+		<div class="form-container">
+		<form action="">		
+			<h1 class="heading">Sign In</h1>
+				<div class="input-box email">
+					<input type="email" id="email" placeholder="Email Address" >
+				</div>
+				<div class="input-box pass">
+					<span class="view" onClick={show()}></span>
+					<input type="password" id="password" placeholder="Password" >
+				</div>
+				<div class="forget-password"><a href="#" class="forget">Forgot Password</a> </div>
+				<div class="btn-cont">	
+					<button class="submite-btn" onclick="login()">Log In</button>
+				</div>
+				<div class="creat-account">Don't have an account ? <a href="./signUp.html" class="creat-account">Create a new account</a></div>
+				<div class="line">
+					<span >or</span>
+				</div>
+				<div class="btn-cont">
+					<a class="btn-google" href="#" class="google-registration-link">
+					<span class="google-icon"><img src="./google-svgrepo-com.svg"  /></span><span class="google-sign-text"> Sign in with Google </span></a> 
+				</div>
+			</form>
+		</div>
+	</div>
+	   
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="index.js"></script>
+</html>
